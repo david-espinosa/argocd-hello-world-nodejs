@@ -47,25 +47,14 @@ const server = http.createServer(async (req, res) => {
   }
 
   // Main endpoint
-  // res.writeHead(200, { 'Content-Type': 'application/json' });
-  // res.end(JSON.stringify({
-  //   // message: 'Hello from EKS!',
-  //   message: 'Hello from Kubernetes mama I love youuu!',
-  //   hostname: os.hostname(),
-  //   timestamp: new Date().toISOString()
-  // }));
+  res.writeHead(200, { 'Content-Type': 'application/json' });
+  res.end(JSON.stringify({
+    // message: 'Hello from EKS!',
+    message: 'Hello from Kubernetes mama I love youuu!',
+    hostname: os.hostname(),
+    timestamp: new Date().toISOString()
+  }));
 
-    res.writeHead(200, { 'Content-Type': 'text/html' });
-res.end(`
-  <!DOCTYPE html>
-  <html>
-  <body style="margin:0;background:#1B3A5C;display:flex;align-items:center;justify-content:center;height:100vh;font-family:Arial,sans-serif;">
-    <h1 style="color:#1D9E75;font-size:5vw;text-align:center;letter-spacing:2px;">
-      Cuseta guapaaaaaa! T'esminyoooo<br/>
-    </h1>
-  </body>
-  </html>
-`);
 
   httpRequestsTotal.inc({ method: req.method, path: req.url, status: 200 });
   end({ method: req.method, path: req.url, status: 200 });
